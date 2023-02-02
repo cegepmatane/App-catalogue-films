@@ -1,0 +1,22 @@
+Action :
+  - Le seigneur des anneaux
+  - Fast & Furious / Rapide et furieux
+  - Babylon
+  - The Batman
+  - La planète des singes
+  - Top Gun
+  - Everything Everywhere All at Once
+
+Science-Fiction :
+  - Terminator
+  - Back to the future
+  - Avatar
+  - Annihilation
+  - Star Wars
+
+Horreur :
+  - La cabane dans les bois
+  - Scream
+  - Sans un bruit
+  - Alien
+  - Jaws / Les dents de la mer
