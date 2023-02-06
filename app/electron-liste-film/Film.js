@@ -1,10 +1,10 @@
 ﻿class Film{
-  constructor(nom, realisateur, sortie, duree, synopsis, id = null){
+  constructor(nom, realisateur, synopsis, sortie, duree, id = null){
     this.nom = nom;
     this.realisateur = realisateur;
+    this.synopsis = synopsis;
 	this.sortie = sortie;
 	this.duree = duree;
-	this.synopsis = synopsis;
     this.id = id;
   }
 

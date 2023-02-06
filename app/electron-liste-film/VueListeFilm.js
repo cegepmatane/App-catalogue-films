@@ -1,10 +1,10 @@
-﻿class VueListeFilm{class
+﻿class VueListeFilm{
   constructor(){
     this.html = document.getElementById("html-vue-liste-film").innerHTML;
     this.listeFilmDonnee = null;
   }
 
-  initialiserListefilm(listeFilmDonnee){
+  initialiserListeFilm(listeFilmDonnee){
     this.listeFilmDonnee = listeFilmDonnee;
   }
 

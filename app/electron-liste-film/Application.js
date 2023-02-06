@@ -1,11 +1,15 @@
 ﻿class Application {
-  constructor(window, vueListeFilm, vueFilm, filmDAO){
+  constructor(window, vueListeFilm, vueFilm, vueAjouterFilm, filmDAO){
 
     this.window = window;
 
     this.vueListeFilm = vueListeFilm;
 
     this.vueFilm = vueFilm;
+
+    this.vueAjouterFilm = vueAjouterFilm;
+    // C'est l'équivalent de function(film){this.ajouterFilm(film)}
+    this.vueAjouterFilm.initialiserAjouterFilm(film =>this.ajouterFilm(film));
 
     this.filmDAO = filmDAO;
 
@@ -20,22 +24,42 @@
 
     if(!hash){
 
-      this.vueListeFilm.initialiserListeFilm(this.filmDAO.lister());
-      this.vueListeFilm.afficher();
+      this.filmDAO.lister((listeFilm) => this.afficherNouvelleListeFilm(listeFilm));
+
+    }else if(hash.match(/^#ajouter-film/)){
+
+      this.vueAjouterFilm.afficher();
 
     }else{
 
       let navigation = hash.match(/^#film\/([0-9]+)/);
       let idFilm = navigation[1];
 
-      let film = this.filmDAO.chercher(parseInt(idFilm))
-      this.vueFilm.initialiserFilm(film);
-      this.vueFilm.afficher();
-
+      this.filmDAO.chercher(idFilm, (film) => this.afficherNouveauFilm(film));
     }
   }
 
+  afficherNouvelleListeFilm(listeFilm){
+
+    console.log(listeFilm);
+    this.vueListeFilm.initialiserListeFilm(listeFilm);
+    this.vueListeFilm.afficher();
+  }
+
+  afficherNouveauFilm(film){
+    console.log(film);
+    this.vueFilm.initialiserFilm(film);
+    this.vueFilm.afficher();
+  }
+
+  ajouterFilm(film){
+    this.filmDAO.ajouter(film, () => this.afficherListeFilm());
+  }
+
+  afficherListeFilm(){
+    this.window.location.hash = "#";
+  }
 }
 
-new Application(window, new VueListeFilm(), new VueFilm(), new FilmDAO());
+new Application(window, new VueListeFilm(), new VueFilm(), new VueAjouterFilm(), new FilmDAO());
 

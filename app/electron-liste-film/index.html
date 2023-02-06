@@ -2,12 +2,13 @@
 <html>
 <head>
   <title>Liste de film</title>
-  <link rel="stylesheet" href="decoration/application.css">
+  <link rel="stylesheet" href="css/main.css">
   <style></style>
   <script src="Film.js"></script>
   <script src="FilmDAO.js"></script>
   <script src="VueFilm.js"></script>
   <script src="VueListeFilm.js"></script>
+  <script src="VueAjouterFilm.js"></script>
   <!--
   https://developer.mozilla.org/en-US/docs/Learn/JavaScript/First_steps/What_is_JavaScript#Script_loading_strategies
   Scripts loaded using the defer attribute will run in the order they appear
@@ -22,7 +23,8 @@
 
   <script type="plain/text" id="html-vue-liste-film">
   <div class="page">
-    <h1>Liste de film</h1>
+    <h1>Liste de films</h1>
+    <a class="add-film" href="#ajouter-film">Ajouter un film</a>
     <ul id="liste-film">
       <li><a href="#film/{Film.id}" class="liste-film-item">{Film.nom}</a></li>
     </ul>
@@ -40,9 +42,45 @@
 	<span>Sortie</span>
 	<p id="film-duree"></p>
 	<span>Duree</span>
-	<p id="film-synopsis"></p>
+    <p id="film-synopsis"></p>
 	<span>Synopsis</span>
     <a href="#" class="action">Revenir &agrave; la liste</a>
+  </div>
+  </script>
+
+  <script type="plain/text" id="html-vue-ajouter-film">
+  <div class="page">
+    <h1>Ajouter un film</h1>
+    <form id="formulaire-ajouter">
+      <fieldset>
+        <legend>Identification du film</legend>
+        <div>
+          <label for="film-nom">Nom</label>
+          <input type="text" id="film-nom"/>
+        </div>
+        <div>
+          <label for="film-realisateur">Realisateur</label>
+          <input type="text" id="film-realisateur"/>
+        </div>
+		<div>
+          <label for="film-sortie">Sortie</label>
+          <input type="text" id="film-sortie"/>
+        </div>
+		<div>
+          <label for="film-duree">Duree</label>
+          <input type="text" id="film-duree"/>
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>D&eacute;tails sur le film</legend>
+        <div>
+          <label for="film-synopsis">Sysnopsis</label>
+          <textarea id="film-synopsis"></textarea>
+        </div>
+      </fieldset>
+      <input class="action" type="submit" id="enregistrer" value="Enregistrer"/>
+    </form>
+    <a href="#" class="action">Annuler et revenir &agrave; la liste</a>
   </div>
   </script>
 

@@ -1,38 +1,61 @@
 ﻿class FilmDAO{
   constructor(){
-    let listeFilmMemoire = [new Film("Auto téléguidée", "Tesla", "12/02/2020", "60min", "Petite voiture pour faire rêver", 0),
-                              new Film("Montre intelligente", "Neo Pebble", "12/02/2020", "60min", "Une vraie montre intelligente open source", 1),
-                              new Film("Lunette de réalité augmentée", "Seer Glasses", "12/02/2020", "60min", "Des lunettes qui me montrent l'invisible", 2)];
-
-    localStorage['film'] = JSON.stringify(listeFilmMemoire);
-    this.listeFilm = [];
+    this.URL = 'http://localhost/serveur/'
   }
 
-  lister(){
-    this.listeFilm = [];
-    let listeFilmMemoire = [];
-    if(localStorage['film']){
-      listeFilmMemoire = JSON.parse(localStorage['film']);
-    }
+  lister(action){
+    fetch('https://5fgvlhcqsh.execute-api.us-east-1.amazonaws.com/default/lister')
+      .then(response => response.json())
+      .then(data =>
+        {
+          console.log(data);
+          let listeFilm = [];
+          for(let position in data){
+            let film = new Film(data[position].nom,
+                                    data[position].realisateur,
+                                    data[position].synopsis,
+									data[position].sortie,
+									data[position].duree,
+                                    data[position].id);
 
-    for(let position in listeFilmMemoire){
-      let film = new Film(listeFilmMemoire[position].nom,
-                              listeFilmMemoire[position].realisateur,
-							  listeFilmMemoire[position].sortie,
-							  listeFilmMemoire[position].duree,
-							  listeFilmMemoire[position].synopsis,
-                              listeFilmMemoire[position].id);
-
-      this.listeFilm.push(film);
-    }
-
-    return this.listeFilm;
-
+            console.log(film);
+            listeFilm.push(film);
+          }
+          action(listeFilm);
+        });
   }
 
-  chercher(id){
-    this.lister();
-    return this.listeFilm.find(film => film.id === id);
+  chercher(id, action){
+    fetch('https://6vjb7phlx7.execute-api.us-east-1.amazonaws.com/default/chercher-par-id' + '?id=' + id)
+      .then(response => response.json())
+      .then(data =>
+        {
+          console.log(data);
+          let film = new Film(data.nom,
+                                  data.realisateur,
+                                  data.synopsis,
+								  data.sortie,
+								  data.duree,
+                                  data.id);
+          action(film);
+        });
+  }
+
+  ajouter(film, action){
+    fetch('https://1he04xrxca.execute-api.us-east-1.amazonaws.com/default/ajouter',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type':'application/x-www-form-urlencoded'
+        },
+        body: JSON.stringify(film),
+      })
+      .then(response => response.text())
+      .then(data =>
+        {
+          console.log('Détail:', data);
+          action();
+        });
   }
 
 }
