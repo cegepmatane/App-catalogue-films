@@ -1,10 +1,7 @@
 ﻿class FilmDAO{
-  constructor(){
-    this.URL = 'http://localhost/serveur/'
-  }
 
   lister(action){
-    fetch('https://5fgvlhcqsh.execute-api.us-east-1.amazonaws.com/default/lister')
+    fetch('https://5fgvlhcqsh.execute-api.us-east-1.amazonaws.com/default/lister', {mode:'cors'})
       .then(response => response.json())
       .then(data =>
         {
@@ -26,7 +23,7 @@
   }
 
   chercher(id, action){
-    fetch('https://6vjb7phlx7.execute-api.us-east-1.amazonaws.com/default/chercher-par-id' + '?id=' + id)
+    fetch('https://6vjb7phlx7.execute-api.us-east-1.amazonaws.com/default/chercher-par-id' + '?id=' + id, {mode:'cors'})
       .then(response => response.json())
       .then(data =>
         {
@@ -48,7 +45,8 @@
         headers: {
           'Content-Type':'application/x-www-form-urlencoded'
         },
-        body: JSON.stringify(film),
+        body: "filmjson=" + JSON.stringify(film),
+        mode:'cors',
       })
       .then(response => response.text())
       .then(data =>
