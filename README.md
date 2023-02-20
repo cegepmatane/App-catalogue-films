@@ -1,6 +1,6 @@
 # projet-catalogue-films
 
-Un projet de Benjamin, Yann, Zhi-Sheng  
+Un projet de Benjamin Mouëza, Yann Mijatovic, Zhi-Sheng Trieu  
 
 Il s'agit d'un projet infonuagique dans lequel nous developpons une application Electron qui permet de consulter et gérer un catalogue de films. 
 
