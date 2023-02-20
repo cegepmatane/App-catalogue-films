@@ -21,3 +21,9 @@ Zhi-Sheng :
  - ajouter : https://nb0yefb8cj.execute-api.us-east-1.amazonaws.com/default/ajouter
  - lister : https://2f5xmaty9k.execute-api.us-east-1.amazonaws.com/default/lister
  - chercher-par-id : https://lmuj7ra4ga.execute-api.us-east-1.amazonaws.com/default/chercher-par-id
+
+Benjamin :  
+ - ajouter : https://1he04xrxca.execute-api.us-east-1.amazonaws.com/default/ajouter  
+ - lister :  https://5fgvlhcqsh.execute-api.us-east-1.amazonaws.com/default/lister  
+ - chercher-par-id : https://6vjb7phlx7.execute-api.us-east-1.amazonaws.com/default/chercher-par-id  
+ 
