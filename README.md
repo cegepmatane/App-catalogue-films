@@ -16,3 +16,8 @@ Yann :
  - ajouter : https://7qq7yg1xbf.execute-api.us-east-1.amazonaws.com/default/ajouter
  - lister : https://qf91dyvn1d.execute-api.us-east-1.amazonaws.com/default/lister
  - chercher-par-id : https://97ggn92mfj.execute-api.us-east-1.amazonaws.com/default/chercher-par-id
+ 
+Zhi-Sheng :
+ - ajouter : https://nb0yefb8cj.execute-api.us-east-1.amazonaws.com/default/ajouter
+ - lister : https://2f5xmaty9k.execute-api.us-east-1.amazonaws.com/default/lister
+ - chercher-par-id : https://lmuj7ra4ga.execute-api.us-east-1.amazonaws.com/default/chercher-par-id
