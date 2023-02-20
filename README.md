@@ -9,3 +9,10 @@ Nous pouvons :
 - consulter
 un film qui est contenu dans un fichier json. Ceci est possible grâce à fonction Lambda de AWS dont les script sont codés en NodeJS.
 L'application utilise les API Gateway de AWS pour manipuler la liste de film.
+
+# API GATEWAY
+
+Yann :
+ - ajouter : https://7qq7yg1xbf.execute-api.us-east-1.amazonaws.com/default/ajouter
+ - lister : https://qf91dyvn1d.execute-api.us-east-1.amazonaws.com/default/lister
+ - chercher-par-id : https://97ggn92mfj.execute-api.us-east-1.amazonaws.com/default/chercher-par-id
